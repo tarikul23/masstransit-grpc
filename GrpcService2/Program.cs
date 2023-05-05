@@ -35,7 +35,7 @@ builder.Services.AddMassTransit(x =>
         cfg.ReceiveEndpoint("employee-consume", endpoint =>
         {
             endpoint.ConfigureConsumeTopology = false;
-            endpoint.Bind("test-exchange",MassTransit.Transports.Fabric.ExchangeType.Topic, "this-is-route-key");
+            endpoint.Bind("test-exchange", MassTransit.Transports.Fabric.ExchangeType.Topic, "service2.*");
 
             endpoint.ConfigureConsumer<EmployeeConsumeEvent2>(context);
         });

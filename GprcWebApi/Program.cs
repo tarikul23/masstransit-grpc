@@ -57,7 +57,7 @@ app.MapGet("sent-to-employee", async (IPublishEndpoint publishEndPoint, ISendEnd
 {
 
     var endpoint = await sendEndpointProvider.GetSendEndpoint(new Uri("exchange:test-exchange?type=topic"));
-    await endpoint.Send(new EmployeeEvent("rashed"), x => x.SetRoutingKey("this-is-route-key"));
+    await endpoint.Send(new EmployeeEvent("rashed"), x => x.SetRoutingKey("service2.routeKey"));
 
     //await publishEndPoint.Publish<EmployeeEvent>(new EmployeeEvent("Rashed"));
 });
